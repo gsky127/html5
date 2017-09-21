@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>七巧板</title>
+	<style type="text/css">
+		#canvas{border:1px solid red;margin-left: 300px;}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		var json = [
+			{p:[{x:0, y:0}, {x:800, y:0}, {x:400, y:400}], color:'#caff67'},
+			{p:[{x:0, y:0}, {x:400, y:400}, {x:0, y:800}], color:'#67becf'},
+			{p:[{x:800, y:0}, {x:800, y:400}, {x:600, y:600}, {x:600, y:200}], color:'#ef3d61'},
+			{p:[{x:600, y:200}, {x:600, y:600}, {x:400, y:400}], color:'#f9f51a'},
+			{p:[{x:400, y:400}, {x:600, y:600}, {x:400, y:800}, {x:200, y:600}], color:'#a594c0'},
+			{p:[{x:200, y:600}, {x:400, y:800}, {x:0, y:800}], color:'#fa8ecc'},
+			{p:[{x:800, y:400}, {x:800, y:800}, {x:400, y:800}], color:'#f6ca29'}
+		]
+		var canvas = document.getElementById('canvas');
+		canvas.width = 800;
+		canvas.height = 800;
+		var context = canvas.getContext('2d');
+		var jsonLen = json.length;
+		for( var i=0; i<jsonLen;i++ ){
+			draw(json[i], context);
+		}
+		function draw(pi, ctx){
+			ctx.beginPath();
+			ctx.moveTo(pi.p[0].x, pi.p[0].y);
+			console.log(pi.p.length);
+			for( var i = 1; i<pi.p.length; i++ ){
+				ctx.lineTo(pi.p[i].x, pi.p[i].y);
+			}
+			ctx.closePath();
+			ctx.fillStyle = pi.color;
+			ctx.fill();
+		}
+
+	</script>
+</body>
+</html>
