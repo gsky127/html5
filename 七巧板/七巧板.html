@@ -3,9 +3,6 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>七巧板</title>
-	<style type="text/css">
-		#canvas{border:1px solid red;margin-left: 300px;}
-	</style>
 </head>
 <body>
 	<canvas id="canvas"></canvas>
@@ -37,6 +34,8 @@
 			ctx.closePath();
 			ctx.fillStyle = pi.color;
 			ctx.fill();
+			ctx.strokeStyle = '#000';
+			ctx.stroke();
 		}
 
 	</script>
